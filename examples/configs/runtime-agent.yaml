@@ -1,0 +1,17 @@
+kind: agent
+llm:
+  provider: ollama
+  model: llama3.2
+  base_url: http://localhost:11434/v1
+system: You are a local Rust assistant.
+memory:
+  type: vector
+tools:
+  - type: calculator
+  - type: file_read
+    root: .
+  - type: file_write
+    root: .
+loop_strategy:
+  type: plan_and_execute
+  max_steps: 6

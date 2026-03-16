@@ -1,0 +1,56 @@
+[workspace]
+resolver = "2"
+default-members = ["crates/agentrs"]
+members = [
+    "crates/agentrs-core",
+    "crates/agentrs-macros",
+    "crates/agentrs-llm",
+    "crates/agentrs-tools",
+    "crates/agentrs-mcp",
+    "crates/agentrs-memory",
+    "crates/agentrs-agents",
+    "crates/agentrs-multi",
+    "crates/agentrs",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["Sergio Ricardo de Sousa"]
+repository = "https://example.com/agentrs"
+rust-version = "1.78"
+
+[workspace.dependencies]
+anyhow = "1"
+async-stream = "0.3"
+async-trait = "0.1"
+bytes = "1"
+futures = "0.3"
+heck = "0.5"
+regex = "1"
+reqwest = { version = "0.12", features = ["json", "stream", "rustls-tls"] }
+schemars = { version = "0.8", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+syn = { version = "2", features = ["full"] }
+quote = "1"
+proc-macro2 = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["full", "process"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+tracing = "0.1"
+uuid = { version = "1", features = ["v4", "serde"] }
+redis = { version = "0.27", features = ["aio", "tokio-comp", "connection-manager"] }
+dotenvy = "0.15"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+dbg_macro = "warn"
+todo = "warn"
+unwrap_used = "warn"
+expect_used = "warn"

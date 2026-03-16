@@ -1,0 +1,31 @@
+[package]
+name = "agentrs-llm"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "Provider-agnostic LLM implementations for agentrs"
+
+[features]
+default = []
+openai = ["dep:reqwest"]
+azureopenai = ["dep:reqwest"]
+anthropic = ["dep:reqwest"]
+ollama = ["openai"]
+gemini = ["dep:reqwest"]
+
+[dependencies]
+agentrs-core = { path = "../agentrs-core" }
+async-stream = { workspace = true }
+async-trait = { workspace = true }
+futures = { workspace = true }
+reqwest = { workspace = true, optional = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,31 @@
+kind: multi_agent
+agents:
+  - name: researcher
+    llm:
+      provider: open_ai
+      model: openai/gpt-oss-20b
+    system: You gather technical facts and use documentation tools.
+    tools:
+      - type: web_search
+      - type: mcp
+        target: https://mcp.context7.com/mcp
+        api_key_header: X-Context7-API-Key
+        api_key_prefix: ""
+    loop_strategy:
+      type: re_act
+      max_steps: 5
+  - name: writer
+    llm:
+      provider: open_ai
+      model: openai/gpt-oss-20b
+    system: You write a polished final answer from the previous agent output.
+    memory:
+      type: token_aware
+      max_tokens: 1200
+    loop_strategy:
+      type: chain_of_thought
+routing:
+  type: sequential
+  order:
+    - researcher
+    - writer

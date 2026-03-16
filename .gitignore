@@ -1,0 +1,90 @@
+# Gerado pelo Cargo
+# Terá arquivos de compilação e dependências
+/target/
+**/*.rs.bk
+
+# Remova o comentário da linha abaixo se o seu projeto não for uma biblioteca
+# /Cargo.lock
+
+# Arquivos de ambiente e configuração local
+.env
+.env.*
+!.env.example
+
+# IDEs e editores
+.vscode/
+*.code-workspace
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.DS_Store
+.vscode-insiders/
+
+# Arquivos de backup
+*.bak
+*.old
+*.orig
+
+# Logs e bancos de dados
+*.log
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+
+# RustRover (JetBrains)
+.idea/
+**/*.rs.bk
+*.iml
+*.iws
+.idea_modules/
+
+# Dependências de documentação
+/doc/
+**/docs/build/
+
+# Configurações locais do Cargo
+.cargo/config.toml.local
+.cargo/credentials
+
+# Se você estiver usando rust-analyzer
+.rust-analyzer/
+rust-project.json
+
+# Arquivos gerados por ferramentas
+**/*.profraw
+**/*.gcov
+**/*.profdata
+**/*.prof
+**/*.gcda
+**/*.gcno
+
+# Se você estiver usando diretórios específicos para builds
+/build/
+/dist/
+
+# Arquivos temporários comuns
+*.tmp
+*.temp
+*.cache
+
+# Snapshots de testes que não devem ser versionados
+**/tests/snapshots/*.snap.new
+
+# Ferramentas de cobertura de código
+/coverage/
+/cobertura.xml
+lcov.info
+
+# Dependências de benchmarks
+/criterion/
+/target/criterion/
+
+# Arquivos de configuração específicos do usuário
+.cargo/config.toml
+.cargo/credentials.toml
+
+# Se você usa WSL e compartilha arquivos
+**/*.wsl

@@ -1,0 +1,99 @@
+[package]
+name = "agentrs"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["Sergio Ricardo de Sousa"]
+repository = "https://example.com/agentrs"
+rust-version = "1.78"
+description = "Facade crate and prelude for agentrs"
+
+[features]
+default = ["openai", "azureopenai", "tool-fetch", "tool-search", "tool-fs", "mcp"]
+openai = ["agentrs-llm/openai"]
+azureopenai = ["agentrs-llm/azureopenai"]
+anthropic = ["agentrs-llm/anthropic"]
+ollama = ["agentrs-llm/ollama", "openai"]
+gemini = ["agentrs-llm/gemini"]
+memory-redis = ["agentrs-memory/redis"]
+tool-fetch = ["agentrs-tools/fetch"]
+tool-search = ["agentrs-tools/search"]
+tool-fs = ["agentrs-tools/filesystem"]
+tool-bash = ["agentrs-tools/bash"]
+tool-python = ["agentrs-tools/python"]
+mcp = ["agentrs-tools/mcp", "dep:agentrs-mcp"]
+full = [
+    "openai",
+    "azureopenai",
+    "anthropic",
+    "ollama",
+    "gemini",
+    "memory-redis",
+    "tool-fetch",
+    "tool-search",
+    "tool-fs",
+    "tool-bash",
+    "tool-python",
+    "mcp",
+]
+
+[dependencies]
+agentrs-agents = { path = "../agentrs-agents" }
+agentrs-core = { path = "../agentrs-core" }
+agentrs-llm = { path = "../agentrs-llm" }
+agentrs-mcp = { path = "../agentrs-mcp", optional = true }
+agentrs-memory = { path = "../agentrs-memory" }
+agentrs-multi = { path = "../agentrs-multi" }
+agentrs-tools = { path = "../agentrs-tools" }
+async-trait = { workspace = true }
+futures = { workspace = true }
+serde = { workspace = true }
+serde_yaml = { workspace = true }
+tokio = { workspace = true }
+
+[dev-dependencies]
+anyhow = { workspace = true }
+schemars = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+dotenvy = { workspace = true }
+
+[[example]]
+name = "simple_agent"
+path = "../../examples/simple_agent.rs"
+
+[[example]]
+name = "tool_use"
+path = "../../examples/tool_use.rs"
+
+[[example]]
+name = "streaming"
+path = "../../examples/streaming.rs"
+
+[[example]]
+name = "multi_agent"
+path = "../../examples/multi_agent.rs"
+
+[[example]]
+name = "mcp_integration"
+path = "../../examples/mcp_integration.rs"
+
+[[example]]
+name = "yaml_single_agent"
+path = "../../examples/yaml_single_agent.rs"
+
+[[example]]
+name = "yaml_multi_agent"
+path = "../../examples/yaml_multi_agent.rs"
+
+[[example]]
+name = "yaml_runtime"
+path = "../../examples/yaml_runtime.rs"
+
+[[test]]
+name = "integration_test"
+path = "../../tests/integration_test.rs"
+
+[lints]
+workspace = true
