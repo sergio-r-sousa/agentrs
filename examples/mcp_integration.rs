@@ -1,9 +1,13 @@
 #![allow(missing_docs)]
 
 use agentrs::prelude::*;
+use dotenvy::dotenv;
+
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let llm = OpenAiProvider::from_env().model("gpt-4o-mini").build()?;
+    dotenv().ok();
+    
+    let llm = OpenAiProvider::from_env().build()?;
 
     let mut mcp_options = WebMcpOptions::new();
     if let Ok(api_key) = std::env::var("CONTEXT7_API_KEY") {
