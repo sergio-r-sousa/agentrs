@@ -18,7 +18,7 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 authors = ["Sergio Ricardo de Sousa"]
-repository = "https://example.com/agentrs"
+repository = "https://github.com/sergio-r-sousa/agentrs"
 rust-version = "1.78"
 
 [workspace.dependencies]

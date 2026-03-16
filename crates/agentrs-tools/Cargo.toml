@@ -1,11 +1,11 @@
 [package]
 name = "agentrs-tools"
-version.workspace = true
-edition.workspace = true
-license.workspace = true
-authors.workspace = true
-repository.workspace = true
-rust-version.workspace = true
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["Sergio Ricardo de Sousa"]
+repository = "https://github.com/sergio-r-sousa/agentrs"
+rust-version = "1.78"
 description = "Tooling primitives and built-in tools for agentrs"
 
 [features]
@@ -18,9 +18,9 @@ python = []
 mcp = ["dep:agentrs-mcp"]
 
 [dependencies]
-agentrs-core = { path = "../agentrs-core" }
-agentrs-macros = { path = "../agentrs-macros" }
-agentrs-mcp = { path = "../agentrs-mcp", optional = true }
+agentrs-core = { version = "0.1.0", path = "../agentrs-core" }
+agentrs-macros = { version = "0.1.0", path = "../agentrs-macros" }
+agentrs-mcp = { version = "0.1.0", path = "../agentrs-mcp", optional = true }
 async-trait = { workspace = true }
 reqwest = { workspace = true }
 schemars = { workspace = true }

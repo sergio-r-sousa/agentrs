@@ -1,17 +1,17 @@
 [package]
 name = "agentrs-agents"
-version.workspace = true
-edition.workspace = true
-license.workspace = true
-authors.workspace = true
-repository.workspace = true
-rust-version.workspace = true
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["Sergio Ricardo de Sousa"]
+repository = "https://github.com/sergio-r-sousa/agentrs"
+rust-version = "1.78"
 description = "Agent builders and execution loops for agentrs"
 
 [dependencies]
-agentrs-core = { path = "../agentrs-core" }
-agentrs-memory = { path = "../agentrs-memory" }
-agentrs-tools = { path = "../agentrs-tools" }
+agentrs-core = { version = "0.1.0", path = "../agentrs-core" }
+agentrs-memory = { version = "0.1.0", path = "../agentrs-memory" }
+agentrs-tools = { version = "0.1.0", path = "../agentrs-tools" }
 async-stream = { workspace = true }
 async-trait = { workspace = true }
 futures = { workspace = true }
